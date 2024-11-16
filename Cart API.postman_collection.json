@@ -1,0 +1,205 @@
+{
+  "collection": {
+    "info": {
+      "_postman_id": "65356c29-b214-4a18-9d82-d7aeb08bd096",
+      "name": "Cart API",
+      "description": "Collection for testing the E-commerce FastAPI endpoints",
+      "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+      "updatedAt": "2024-11-16T18:38:41.000Z",
+      "createdAt": "2024-11-16T18:30:03.000Z",
+      "lastUpdatedBy": "15494041",
+      "uid": "15494041-65356c29-b214-4a18-9d82-d7aeb08bd096"
+    },
+    "item": [
+      {
+        "name": "Products",
+        "item": [
+          {
+            "name": "Get All Products",
+            "event": [
+              {
+                "listen": "test",
+                "script": {
+                  "id": "2b85f897-0413-47ba-8815-712e67c02993",
+                  "exec": [""],
+                  "type": "text/javascript",
+                  "packages": {}
+                }
+              }
+            ],
+            "id": "52a8c96a-c1e7-4b31-80df-e6e266b6fdb1",
+            "protocolProfileBehavior": { "disableBodyPruning": true },
+            "request": {
+              "method": "GET",
+              "header": [],
+              "url": {
+                "raw": "{{base_url}}/products",
+                "host": ["{{base_url}}"],
+                "path": ["products"]
+              }
+            },
+            "response": [],
+            "uid": "15494041-52a8c96a-c1e7-4b31-80df-e6e266b6fdb1"
+          }
+        ],
+        "id": "fe04d210-0714-4e6b-8b52-22c3d0362696",
+        "uid": "15494041-fe04d210-0714-4e6b-8b52-22c3d0362696"
+      },
+      {
+        "name": "Cart",
+        "item": [
+          {
+            "name": "Add Item to Cart",
+            "id": "068c5cc9-23e3-426f-a5db-c6cbbb0d6bf5",
+            "protocolProfileBehavior": { "disableBodyPruning": true },
+            "request": {
+              "method": "POST",
+              "header": [],
+              "body": {
+                "mode": "raw",
+                "raw": "{\n    \"product_id\": 1,\n    \"quantity\": 2\n}",
+                "options": { "raw": { "language": "json" } }
+              },
+              "url": {
+                "raw": "{{base_url}}/cart/{{user_id}}/add",
+                "host": ["{{base_url}}"],
+                "path": ["cart", "{{user_id}}", "add"]
+              }
+            },
+            "response": [],
+            "uid": "15494041-068c5cc9-23e3-426f-a5db-c6cbbb0d6bf5"
+          },
+          {
+            "name": "Get Cart",
+            "id": "ad3571ca-e6f5-4eac-980b-620a85cae7ff",
+            "protocolProfileBehavior": { "disableBodyPruning": true },
+            "request": {
+              "method": "GET",
+              "header": [],
+              "url": {
+                "raw": "{{base_url}}/cart/{{user_id}}",
+                "host": ["{{base_url}}"],
+                "path": ["cart", "{{user_id}}"]
+              }
+            },
+            "response": [],
+            "uid": "15494041-ad3571ca-e6f5-4eac-980b-620a85cae7ff"
+          }
+        ],
+        "id": "e089b673-c403-4fb4-b1af-471bf15ed72e",
+        "uid": "15494041-e089b673-c403-4fb4-b1af-471bf15ed72e"
+      },
+      {
+        "name": "Checkout",
+        "item": [
+          {
+            "name": "Checkout Without Discount",
+            "id": "2444e8cd-b420-45f7-97ab-6aafa4748cca",
+            "protocolProfileBehavior": { "disableBodyPruning": true },
+            "request": {
+              "method": "POST",
+              "header": [],
+              "url": {
+                "raw": "{{base_url}}/checkout/{{user_id}}",
+                "host": ["{{base_url}}"],
+                "path": ["checkout", "{{user_id}}"]
+              }
+            },
+            "response": [],
+            "uid": "15494041-2444e8cd-b420-45f7-97ab-6aafa4748cca"
+          },
+          {
+            "name": "Checkout With Discount",
+            "id": "3d151846-d7f2-432b-b01a-96406ac21531",
+            "protocolProfileBehavior": { "disableBodyPruning": true },
+            "request": {
+              "method": "POST",
+              "header": [],
+              "url": {
+                "raw": "{{base_url}}/checkout/{{user_id}}?discount_code={{discount_code}}",
+                "host": ["{{base_url}}"],
+                "path": ["checkout", "{{user_id}}"],
+                "query": [
+                  { "key": "discount_code", "value": "{{discount_code}}" }
+                ]
+              }
+            },
+            "response": [],
+            "uid": "15494041-3d151846-d7f2-432b-b01a-96406ac21531"
+          }
+        ],
+        "id": "e0af82ce-67f7-4756-b913-7c5ef7a31048",
+        "uid": "15494041-e0af82ce-67f7-4756-b913-7c5ef7a31048"
+      },
+      {
+        "name": "Admin",
+        "item": [
+          {
+            "name": "Get Admin Stats",
+            "id": "d5202add-088d-489d-ac4d-f6167f1da626",
+            "protocolProfileBehavior": { "disableBodyPruning": true },
+            "request": {
+              "method": "GET",
+              "header": [],
+              "url": {
+                "raw": "{{base_url}}/admin/stats",
+                "host": ["{{base_url}}"],
+                "path": ["admin", "stats"]
+              }
+            },
+            "response": [],
+            "uid": "15494041-d5202add-088d-489d-ac4d-f6167f1da626"
+          },
+          {
+            "name": "Get Discount Codes",
+            "id": "db1e434f-e1d8-4c1c-8523-2f923619d268",
+            "protocolProfileBehavior": { "disableBodyPruning": true },
+            "request": {
+              "auth": {
+                "type": "bearer",
+                "bearer": [
+                  {
+                    "key": "token",
+                    "value": "super-secret-token",
+                    "type": "string"
+                  }
+                ]
+              },
+              "method": "GET",
+              "header": [],
+              "url": {
+                "raw": "{{base_url}}/admin/discount-codes",
+                "host": ["{{base_url}}"],
+                "path": ["admin", "discount-codes"]
+              }
+            },
+            "response": [],
+            "uid": "15494041-db1e434f-e1d8-4c1c-8523-2f923619d268"
+          }
+        ],
+        "id": "47e1db33-fd05-4c25-9460-bd3a5bc602f3",
+        "uid": "15494041-47e1db33-fd05-4c25-9460-bd3a5bc602f3"
+      }
+    ],
+    "event": [
+      {
+        "listen": "prerequest",
+        "script": {
+          "type": "text/javascript",
+          "exec": [
+            "// Set default user ID if not present",
+            "if (!pm.variables.get('user_id')) {",
+            "    pm.variables.set('user_id', 'user123');",
+            "}"
+          ],
+          "id": "8c0bcb60-bef9-4ca0-921d-ba46a68a3373"
+        }
+      }
+    ],
+    "variable": [
+      { "key": "user_id", "value": "user123", "type": "string" },
+      { "key": "discount_code", "value": "DISCOUNT1234", "type": "string" },
+      { "key": "base_url", "value": "http://127.0.0.1:8123", "type": "default" }
+    ]
+  }
+}
